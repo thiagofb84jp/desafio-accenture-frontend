@@ -29,7 +29,6 @@ public class PracticeFormPage {
     By city = By.id("react-select-4-input");
     By modalPopUp = By.id("example-modal-sizes-title-lg");
     By closeButton = By.id("closeLargeModal");
-//    By reactComponent = By.xpath("//div[contains(@id,'react-select')]");
 
     public PracticeFormPage(WebDriver driver) {
         this.driver = driver;

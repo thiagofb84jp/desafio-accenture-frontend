@@ -16,7 +16,7 @@ public class PracticeFormTest {
 
     WebDriver driver = new ChromeDriver();
 
-    PracticeFormPage searchPage = new PracticeFormPage(driver);
+    PracticeFormPage practiceFormPage = new PracticeFormPage(driver);
 
     public PracticeFormTest() {
         driver.manage().window().maximize();
@@ -25,26 +25,25 @@ public class PracticeFormTest {
 
     @Test
     public void cadastrarEstudanteComSucesso() throws InterruptedException {
-        searchPage.fillFirstName("Marcos");
-        searchPage.fillLastName("dos Santos da Silva Costa");
-        searchPage.fillEmail("marcos_santos_silva@gmail.com");
-        searchPage.selectMaleGender();
-        searchPage.fillMobilePhone("83992516234");
-        searchPage.fillDateOfBirth(LocalDate.of(1990, 10, 16));
-        searchPage.fillSubjects("Maths");
-        searchPage.fillHobbiesSports();
-        searchPage.sendFile();
-        searchPage.fillCurrentAddress("Rua dos Sonhos Perdidos, no. 25");
-        searchPage.fillState("NCR");
-        searchPage.fillCity("Noida");
-        searchPage.clickSubmitButton();
-        searchPage.isPopUpOpened();
-        searchPage.closePopUp();
+        practiceFormPage.fillFirstName("Marcos");
+        practiceFormPage.fillLastName("dos Santos da Silva Costa");
+        practiceFormPage.fillEmail("marcos_santos_silva@gmail.com");
+        practiceFormPage.selectMaleGender();
+        practiceFormPage.fillMobilePhone("83992516234");
+        practiceFormPage.fillDateOfBirth(LocalDate.of(1990, 10, 16));
+        practiceFormPage.fillSubjects("Maths");
+        practiceFormPage.fillHobbiesSports();
+        practiceFormPage.sendFile();
+        practiceFormPage.fillCurrentAddress("Rua João Gilberto Lima da Costa e Silva, no. 25");
+        practiceFormPage.fillState("NCR");
+        practiceFormPage.fillCity("Noida");
+        practiceFormPage.clickSubmitButton();
+        practiceFormPage.isPopUpOpened();
+        practiceFormPage.closePopUp();
     }
 
     @After
     public void closePage() {
         driver.quit();
     }
-
 }
