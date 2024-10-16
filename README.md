@@ -93,10 +93,8 @@ A estrutura do projeto segue o padrão Maven, com os diretórios separados para 
                         |-- suite
                         |-- test
         |-- resources
-            |-- 01 - plano-testes
-            |-- 02 - caso-testes
-            |-- 03 - reportes
-            |-- XX - pictures                   
+            |-- chromedriver
+            |-- geckodriver
 |-- pom.xml
 |-- README.md
 ```
@@ -107,8 +105,7 @@ A estrutura do projeto segue o padrão Maven, com os diretórios separados para 
 git clone <colocar-link-aqui-github-accenture>
 ```
 2. Importe o projeto na sua IDE (exemplo: IntelliJ IDEA).
-3. Compile e execute os testes localizando o arquivo `SuiteTest.java`:
-4. Os resultados dos testes serão exibidos no console da IDE.
+3. Siga direto para os arquivos de testes.
 
 ## Exemplos de Testes
 Aqui está um exemplo simples de teste de API utilizando REST-Assured e JUnit:
@@ -136,20 +133,8 @@ public class ApiTest {
 }
 ```
 
-## Planos e Casos de Testes
-Este projeto possui:
-- Plano de Teste;
-- Casos de Testes:
-  - Usuários;
-  - Produtos.
-- Reportes.
-- Imagens/screenshots.
-
-Para maiores informações, verificar os arquivos contidos dentro da pasta /resources. 
-
 ## Licença
 Este projeto é licenciado sob a MIT License - consulte o arquivo LICENSE para mais detalhes.
-
 
 ### O que está incluído:
 - **Introdução** sobre o propósito do projeto.

@@ -1,27 +1,18 @@
 package br.pb.thiagofb84jp.seleniumChallenge.test;
 
-import br.pb.thiagofb84jp.seleniumChallenge.page.AlertsFrameWindowsPage;
+import br.pb.thiagofb84jp.seleniumChallenge.core.DriverManager;
+import br.pb.thiagofb84jp.seleniumChallenge.core.Constants;
 import br.pb.thiagofb84jp.seleniumChallenge.page.WebTablePage;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.util.Set;
 
 public class WebTableTest {
-    private static final String DEMOQA_WEB_TABLES = "https://demoqa.com/webtables";
-
-    WebDriver driver = new ChromeDriver();
-
+    WebDriver driver = DriverManager.getDriver("chrome");
     WebTablePage webTablePage = new WebTablePage(driver);
 
     public WebTableTest() {
-        driver.manage().window().maximize();
-        driver.get(DEMOQA_WEB_TABLES);
+        driver.get(Constants.DEMOQA_WEB_TABLES);
     }
 
     @Test
@@ -54,6 +45,6 @@ public class WebTableTest {
 
     @After
     public void closePage() {
-        driver.quit();
+        DriverManager.quitDriver();
     }
 }

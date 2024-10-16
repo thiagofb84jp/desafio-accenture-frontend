@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 public class AlertsFrameWindowsTest {
-    WebDriver driver = DriverManager.getDriver();
+    WebDriver driver = DriverManager.getDriver("chrome");
     AlertsFrameWindowsPage windowsPage = new AlertsFrameWindowsPage(driver);
 
     public AlertsFrameWindowsTest() {

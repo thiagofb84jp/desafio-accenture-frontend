@@ -11,7 +11,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class PracticeFormPage {
-
     WebDriver driver;
 
     By submitButton = By.id("submit");

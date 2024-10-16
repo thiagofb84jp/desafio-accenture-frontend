@@ -1,9 +1,10 @@
 package br.pb.thiagofb84jp.seleniumChallenge.page;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class WebTablePage {
-
     WebDriver driver;
 
     By modalContentClass = By.className("modal-content");

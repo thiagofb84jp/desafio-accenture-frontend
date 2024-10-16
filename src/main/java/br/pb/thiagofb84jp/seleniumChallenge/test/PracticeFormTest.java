@@ -1,26 +1,20 @@
 package br.pb.thiagofb84jp.seleniumChallenge.test;
 
+import br.pb.thiagofb84jp.seleniumChallenge.core.Constants;
+import br.pb.thiagofb84jp.seleniumChallenge.core.DriverManager;
 import br.pb.thiagofb84jp.seleniumChallenge.page.PracticeFormPage;
 import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.LocalDate;
 
-import static org.junit.Assert.assertEquals;
-
 public class PracticeFormTest {
-
-    private static final String DEMOQA_PRACTICE_FORM_LINK = "https://demoqa.com/automation-practice-form";
-
-    WebDriver driver = new ChromeDriver();
-
+    WebDriver driver = DriverManager.getDriver("chrome");
     PracticeFormPage practiceFormPage = new PracticeFormPage(driver);
 
     public PracticeFormTest() {
-        driver.manage().window().maximize();
-        driver.get(DEMOQA_PRACTICE_FORM_LINK);
+        driver.get(Constants.DEMOQA_PRACTICE_FORM_LINK);
     }
 
     @Test
@@ -44,6 +38,6 @@ public class PracticeFormTest {
 
     @After
     public void closePage() {
-        driver.quit();
+        DriverManager.quitDriver();
     }
 }
