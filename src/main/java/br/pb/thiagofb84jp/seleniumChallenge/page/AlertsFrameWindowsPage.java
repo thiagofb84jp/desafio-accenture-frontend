@@ -6,7 +6,6 @@ import org.openqa.selenium.*;
 import java.util.Set;
 
 public class AlertsFrameWindowsPage {
-
     WebDriver driver;
 
     By windowButton = By.id("windowButton");
@@ -22,7 +21,6 @@ public class AlertsFrameWindowsPage {
 
     public void handleWindow() {
         String mainWindow = driver.getWindowHandle();
-
         Set<String> allWindows = driver.getWindowHandles();
 
         for (String windowHandle : allWindows) {

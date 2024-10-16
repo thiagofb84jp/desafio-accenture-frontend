@@ -1,31 +1,22 @@
 package br.pb.thiagofb84jp.seleniumChallenge.test;
 
+import br.pb.thiagofb84jp.seleniumChallenge.core.Constants;
+import br.pb.thiagofb84jp.seleniumChallenge.core.DriverManager;
 import br.pb.thiagofb84jp.seleniumChallenge.page.AlertsFrameWindowsPage;
-import br.pb.thiagofb84jp.seleniumChallenge.page.PracticeFormPage;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.util.Set;
 
 public class AlertsFrameWindowsTest {
-
-    private static final String DEMOQA_BROWSER_WINDOWS = "https://demoqa.com/browser-windows";
-
-    WebDriver driver = new ChromeDriver();
+    WebDriver driver = DriverManager.getDriver();
     AlertsFrameWindowsPage windowsPage = new AlertsFrameWindowsPage(driver);
 
     public AlertsFrameWindowsTest() {
-        driver.manage().window().maximize();
-        driver.get(DEMOQA_BROWSER_WINDOWS);
+        driver.get(Constants.DEMOQA_BROWSER_WINDOWS);
     }
 
     @Test
-    public void abrirNewWindow() {
+    public void openNewWindow() {
         windowsPage.clickNewWindow();
         windowsPage.handleWindow();
         windowsPage.verifyPopUpMessage("This is a sample page");
@@ -34,6 +25,6 @@ public class AlertsFrameWindowsTest {
 
     @After
     public void closePage() {
-        driver.quit();
+        DriverManager.quitDriver();
     }
 }

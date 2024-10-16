@@ -6,76 +6,80 @@ public class WebTablePage {
 
     WebDriver driver;
 
-    By submitButton = By.id("submit");
-    By firstName = By.id("firstName");
-    By lastName = By.id("lastName");
-    By email = By.id("userEmail");
-    By gender = By.xpath("//input[@name='gender' and @value='%s']");
-    By mobilePhone = By.id("userNumber");
-    By subjects = By.id("subjectsInput");
-    By hobby = By.xpath("//label[text()='Sports']/preceding-sibling::input[@type='checkbox']");
-    By currentAddress = By.id("currentAddress");
-    By state = By.xpath("//input[@id='react-select-3-input']");
-    By reactComponent = By.xpath("//div[contains(@id,'react-select')]");
+    By modalContentClass = By.className("modal-content");
+    By addNewRecordButton = By.id("addNewRecordButton");
+    By firstNameSelector = By.id("firstName");
+    By lastNameSelector = By.id("lastName");
+    By emailSelector = By.id("userEmail");
+    By ageSelector = By.id("age");
+    By salarySelector = By.id("salary");
+    By departmentSelector = By.id("department");
+    By submitButtonSelector = By.id("submit");
+    By editButton = By.id("edit-record-4");
+    By deleteButton = By.id("delete-record-4");
 
     public WebTablePage(WebDriver driver) {
         this.driver = driver;
     }
 
+    private WebElement getModal() {
+        return driver.findElement(modalContentClass);
+    }
+
+    public void clickAddNewRecordButton() {
+        driver.findElement(addNewRecordButton).click();
+    }
+
+    public void switchWindow() {
+        WebElement modal = getModal();
+    }
+
     public void fillFirstName(String strFirstName) {
-        driver.findElement(firstName).sendKeys(strFirstName);
+        WebElement firstName = getModal().findElement(firstNameSelector);
+        firstName.clear();
+        firstName.sendKeys(strFirstName);
     }
 
     public void fillLastName(String strLastName) {
-        driver.findElement(lastName).sendKeys(strLastName);
+        WebElement lastName = getModal().findElement(lastNameSelector);
+        lastName.clear();
+        lastName.sendKeys(strLastName);
     }
 
     public void fillEmail(String strEmail) {
-        driver.findElement(email).sendKeys(strEmail);
+        WebElement email = getModal().findElement(emailSelector);
+        email.clear();
+        email.sendKeys(strEmail);
     }
 
-    public void selectMaleGender() {
-        WebElement labelMale = driver.findElement(By.xpath("//label[@for='gender-radio-1']"));
-        labelMale.click();
+    public void fillAge(String strAge) {
+        WebElement age = getModal().findElement(ageSelector);
+        age.clear();
+        age.sendKeys(strAge);
     }
 
-    public void fillMobilePhone(String strMobilePhone) {
-        driver.findElement(mobilePhone).sendKeys(strMobilePhone);
+    public void fillSalary(String strSalary) {
+        WebElement salary = getModal().findElement(salarySelector);
+        salary.clear();
+        salary.sendKeys(strSalary);
     }
 
-    public void fillDateOfBirth() {
-
-    }
-
-    public void fillSubjects(String strSubjects) {
-        driver.findElement(subjects).sendKeys(strSubjects);
-        driver.findElement(subjects).sendKeys(Keys.ENTER);
-    }
-
-    public void fillHobbies (String strHobby){
-        driver.findElement(hobby).click();
-    }
-
-    public void sendPicture() {
-
-    }
-
-    public void fillCurrentAddress(String strCurrentAddress) {
-        driver.findElement(currentAddress).sendKeys(strCurrentAddress);
-    }
-
-    public void fillState (String strState) {
-        driver.findElement(state).sendKeys("NCR");
-        driver.findElement(reactComponent).click();
-    }
-
-    public void fillCity() {
-
+    public void fillDepartment(String strDepartment) {
+        WebElement department = getModal().findElement(departmentSelector);
+        department.clear();
+        department.sendKeys(strDepartment);
     }
 
     public void clickSubmitButton() {
-        WebElement button = driver.findElement(submitButton);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", button);
-        button.click();
+        WebElement submitButton = getModal().findElement(submitButtonSelector);
+        submitButton.click();
+    }
+
+    public void clickEditButton() {
+        driver.findElement(editButton).click();
+    }
+
+    public void deleteRecord() {
+        driver.findElement(deleteButton).click();
     }
 }
