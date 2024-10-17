@@ -1,87 +1,50 @@
 # Projeto de Testes Automatizados com Selenium Webdriver
 
-## Desafio técnico de QA para a Accenture
+## Desafio Accenture - Testes Automatizados
 
-Este projeto implementa testes automatizados para APIs RESTful utilizando a biblioteca **Selenium Webdriver**. A estrutura do projeto foi desenvolvida em **Java 17** e utiliza **JUnit 4.12** como framework de testes. Além disso, são usadas as bibliotecas **GSON** para manipulação de JSON e **JSON Schema Validator** para validação de esquemas JSON.
+Este projeto foi desenvolvido para o desafio da Accenture e utiliza **Selenium** e **JUnit** para testes automatizados de aplicações frontend. 
+O objetivo é testar a interface de uma aplicação web de maneira eficiente e automatizada.
 
-
-## Requisitos
+## Tecnologias Utilizadas
 
 Certifique-se de que seu ambiente de desenvolvimento atende aos seguintes requisitos:
 
-- **Java 17** (ou superior)
+- **Java** (versão 17)
+- **Selenium** (versão 4.15.0)
+- **JUnit** (versão 4.13.1)
+- **SLF4J** para logging (versão 2.0.7)
 - **IntelliJ IDEA 2023.2.2 (Community Edition)** (ou outra IDE de sua preferência)
 - **Maven** (ou Gradle, dependendo do seu gerenciador de dependências)
 - **Git** (opcional, para controle de versão)
 
-## Dependências Utilizadas
+## Configurações do Projeto
 
-As principais dependências do projeto são:
+Os principais requisitos são:
+- **JDK 17** instalado.
+- **Maven** para gerenciamento de dependências.
 
-- **REST-Assured 5.3.0**: Para realizar testes em APIs REST.
-- **JUnit 4.13.2**: Framework para estruturação e execução dos testes.
-- **Google Code GSON 2.10**: Para serialização e desserialização de objetos JSON.
-- **JSON Schema Validator 5.1.1**: Para validação de respostas JSON utilizando schemas.
+## Dependências
 
-### Gerenciador de Dependências (Maven)
+As principais dependências utilizadas no projeto são:
+- **Selenium Java**: Biblioteca principal para automação de testes em navegadores. 
+- **JUnit**: Framework de testes para escrita e execução dos casos de teste.****
+- **SLF4J**: Framework de logging utilizado para simplificar a geração de logs durante a execução dos testes.
 
-No arquivo `pom.xml`, as dependências podem ser adicionadas como:
+As dependências estão configuradas no arquivo pom.xml. Para instalar todas as dependências, execute o comando Maven:
 
-```xml 
-<dependencies>
-    <!-- REST-Assured -->
-    <dependency>
-        <groupId>io.rest-assured</groupId>
-        <artifactId>rest-assured</artifactId>
-        <version>5.3.0</version>
-        <scope>test</scope>
-    </dependency>
-
-    <!-- JUnit -->
-    <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.13.2</version>
-        <scope>test</scope>
-    </dependency>
-
-    <!-- GSON -->
-    <dependency>
-        <groupId>com.google.code.gson</groupId>
-        <artifactId>gson</artifactId>
-        <version>2.10</version>
-    </dependency>
-    
-    <!-- JAXB API -->
-    <dependency>
-        <groupId>org.glassfish.jaxb</groupId>
-        <artifactId>jaxb-runtime</artifactId>
-        <version>2.3.1</version>
-        <scope>runtime</scope>
-    </dependency>
-
-    <!-- JAXB API -->
-    <dependencies>
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.1</version>
-        </dependency>
-    
-    <!-- JSON Schema Validator -->
-    <dependency>
-        <groupId>com.github.java-json-tools</groupId>
-        <artifactId>json-schema-validator</artifactId>
-        <version>5.1.1</version>
-    </dependency>
-</dependencies>
+```bash
+mvn clean install
 ```
 
 ## Estrutura do Projeto
+
+- **src/main/java**: Contém os casos de teste automatizados utilizando Selenium e JUnit.
+- **src/main/resources**: Contém os recursos e configurações utilizadas durante a execução dos testes.
+
 A estrutura do projeto segue o padrão Maven, com os diretórios separados para código fonte e testes:
 
 ```
-/CursoRest/
+/CursoSelenium/
 |-- src/
 |   |-- main/
 |   |   |-- java/
@@ -89,58 +52,16 @@ A estrutura do projeto segue o padrão Maven, com os diretórios separados para 
                 |-- pb 
                     |-- thiagofb84jp
                         |-- core
-                        |-- dto
-                        |-- suite
+                        |-- page
                         |-- test
         |-- resources
-            |-- chromedriver
-            |-- geckodriver
 |-- pom.xml
 |-- README.md
 ```
 
-## Como executar os testes
-1. Clone este repositório na sua máquina local:
-``` bash
-git clone <colocar-link-aqui-github-accenture>
-```
-2. Importe o projeto na sua IDE (exemplo: IntelliJ IDEA).
-3. Siga direto para os arquivos de testes.
+## Links Importantes:
+- Projeto no Github: https://github.com/thiagofb84jp/desafio-accenture-frontend
 
-## Exemplos de Testes
-Aqui está um exemplo simples de teste de API utilizando REST-Assured e JUnit:
+## Contribuição:
 
-``` java
-import io.restassured.RestAssured;
-import org.junit.Test;
-
-import static io.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.*;
-
-public class ApiTest {
-
-    @Test
-    public void validarStatusCode() {
-        RestAssured.baseURI = "https://api.exemplo.com";
-        
-        given().
-        when().
-            get("/endpoint").
-        then().
-            assertThat().
-            statusCode(200);
-    }
-}
-```
-
-## Licença
-Este projeto é licenciado sob a MIT License - consulte o arquivo LICENSE para mais detalhes.
-
-### O que está incluído:
-- **Introdução** sobre o propósito do projeto.
-- **Requisitos** para preparar o ambiente de desenvolvimento.
-- **Dependências utilizadas**, com exemplos de como incluí-las em um projeto Maven.
-- **Estrutura do projeto**, ilustrando onde o código e testes ficam organizados.
-- **Instruções de execução** para rodar os testes.
-- **Exemplo de teste** usando REST-Assured com JUnit.
-- **Licença** (opcional).
+Sinta-se à vontade para abrir issues ou enviar pull requests caso encontre algo que possa ser melhorado ou corrigido.
